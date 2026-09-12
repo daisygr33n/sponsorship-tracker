@@ -16,14 +16,11 @@ function CompanyTable({companies}: CompanyTableProps){ //destructuring the objec
             <thead>
                 <tr>
                     <th>Name</th>
-                </tr>
-                <tr>
+
                     <th>Category</th>
-                </tr>
-                <tr>
+
                     <th>Contact Email</th>
-                </tr>
-                <tr>
+
                     <th>Status</th>
                 </tr>
             </thead>
