@@ -24,9 +24,18 @@ function App() {
 
   }
 
+  {/*filter runs function on each element and keeps ones which return true
+    e.g keeps every company where id DOESNT match*/}
+
+  function handleDelete(id: string){
+    const updated = companies.filter(company => company.id !== id);
+    setCompanies(updated);
+    saveCompanies(updated);
+  }
+
   return (
     <>
-      <CompanyTable companies={companies}/>
+      <CompanyTable companies={companies} onDelete={handleDelete}/>
       <button onClick={handleAdd}>Add test company</button>
   </>
   );

@@ -7,10 +7,11 @@ import CompanyRow from './CompanyRow'
 
 //objects need their shaped described by interface
 interface CompanyTableProps {
-    companies: Company[]
+    companies: Company[];
+    onDelete: (id: string) => void;
 }
 
-function CompanyTable({companies}: CompanyTableProps){ //destructuring the object to pull property out (companies instead of props.companies)
+function CompanyTable({companies, onDelete}: CompanyTableProps){ //destructuring the object to pull property out (companies instead of props.companies)
     return(
         <table>
             <thead>
@@ -29,13 +30,15 @@ function CompanyTable({companies}: CompanyTableProps){ //destructuring the objec
                 {/* creates a CompanyRow element with key and a prop called company'
                         React strips key out for when state changes */}
                 {companies.map(c => (
-                    <CompanyRow key={c.id} company={c}/>  
+                    <CompanyRow key={c.id} company={c} onDelete={onDelete}/>  
                 ))}
             </tbody>
         </table>
 
     );
 }
+
+
 
 export default CompanyTable
 
@@ -49,3 +52,5 @@ const doubled = numbers.map(n => n * 2);
  map runs function 3 times  ^function^ */
 
  //companies is the array holding all of them; Company describes what one looks like.
+
+ //on* means "a function I was given", handle* means "a function I defined"
