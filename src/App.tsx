@@ -2,6 +2,7 @@ import { useState } from 'react'
 import  './App.css'
 import {loadCompanies, saveCompanies} from './lib/storage'
 import type { Company } from './types'
+import CompanyTable from './components/CompanyTable'
 
 function App() {
   const [companies, setCompanies] = useState<Company[]>(loadCompanies());
@@ -18,14 +19,11 @@ function App() {
     setCompanies(updated);
     saveCompanies(updated);
 
-
   }
 
   return (
     <>
-      <p>
-        {companies.length} companies
-      </p>
+      <CompanyTable companies={companies}/>
       <button onClick={handleAdd}>Add test company</button>
   </>
   );

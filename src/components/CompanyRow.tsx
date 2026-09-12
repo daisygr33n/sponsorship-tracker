@@ -1,6 +1,6 @@
+//COMPONENT- takes props and returns JSX
 //Takes one company prop, returns a <tr> with cells 
-//for name, category, ..
-//Props are read only, data flows down
+
 import type { Company } from '../types'
 
 interface CompanyRowProps {
@@ -14,11 +14,11 @@ function CompanyRow({ company }: CompanyRowProps) {
     <td>{company.category}</td>
     <td>{company.contactEmail ?? '-'}</td>
     <td>{company.status}</td>
-    <td>{company.amount ?? '-'}</td>
   </tr>
 
   
 );}
 
 export default CompanyRow
+
 
